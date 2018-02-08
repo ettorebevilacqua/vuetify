@@ -1,0 +1,6 @@
+{
+  "esversion": 6,
+  "asi": true,
+  browser: true,
+  space-before-function-paren: ["error", "never"]
+}
