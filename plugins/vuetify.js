@@ -14,6 +14,8 @@ import {
   VTextField
 } from 'vuetify'
 
+  import VueTree from '@pragmasphere/vue-tree'
+
 Vue.use(Vuetify, {
   theme: {
     primary: '#9c27b0',
@@ -38,3 +40,4 @@ Vue.use(Vuetify, {
     VTextField
   }
 })
+// Vue.components('vue-tree', VueTree)

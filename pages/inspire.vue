@@ -1,6 +1,17 @@
 <template>
 <v-layout>
   <v-flex text-xs-center>
+<h2>Rete :</h2>
+      <tree-view style="font-size:12px"
+           :nodes="rete.nodes"
+           :depth="0"
+           :label="rete.label"
+           ></tree-view>
+</div>
+
+    <!--  <tree :data="rete"> </tree>     @toggle="toggle($event)" @change="change($event)">
+<vue-tree></vue-tree>
+-->
   <!--  <img src="/v.png" alt="Vuetify.js" class="mb-5">
     <blockquote class="blockquote">
       &#8220;First, solve the problem. Then, write the code.&#8221;
@@ -11,70 +22,100 @@
       </footer>
     </blockquote> -->
 
-  {{rete}}
   </v-flex>
 </v-layout>
 </template>
 
 
 <script>
-const data = [{
-    name: 'rossi luigi',
+//  import  "tree-vue-component"
+import TreeView from '~/components/tree'
+
+const treeData = {
+  text: 'root',
+  nodes: [
+    {
+      text: 'item1',
+      nodes: [
+        {
+          text: 'item1.1'
+        },
+        {
+          text: 'item1.2',
+          nodes: [
+            {
+              label: 'item1.2.1'
+            }
+          ]
+        }
+      ]
+    },
+    {
+      text: 'item2'
+    }
+  ]
+}
+
+const data = {
+    label:'la mia struttura ',
+    nodes:
+    [{
+    label: 'rossi luigi',
     tot: 5000,
-    childs: [{
-        name: 'qui',
+    nodes: [{
+        label: 'qui',
         tot: 2000,
-        childs: [{
-          name: 'topolino',
+        nodes: [{
+          label: 'topolino',
           tot: 2000,
-          childs: [
+          nodes: [
 
           ]
         }]
       },
       {
-        name: 'quo',
+        label: 'quo',
         tot: 2000,
-        childs: [{
-            name: 'bassotto1',
+        nodes: [{
+            label: 'bassotto1',
             tot: 2000,
-            childs: [
+            nodes: [
 
             ]
           },
           {
-            name: 'bassotto2',
+            label: 'bassotto2',
             tot: 2000,
-            childs: [
+            nodes: [
 
             ]
           }
         ]
       },
       {
-        name: 'qua',
+        label: 'qua',
         tot: 2000,
-        childs: [{
-            name: 'gastone',
+        nodes: [{
+            label: 'gastone',
             tot: 2000,
-            childs: [
+            nodes: [
 
             ]
           },
           {
-            name: 'paperone',
+            label: 'paperone',
             tot: 2000,
-            childs: [{
-                name: 'papera',
+            nodes: [{
+                label: 'papera',
                 tot: 2000,
-                childs: [
+                nodes: [
 
                 ]
               },
               {
-                name: 'paperino',
+                label: 'paperino',
                 tot: 2000,
-                childs: [
+                nodes: [
 
                 ]}
             ]}
@@ -83,32 +124,44 @@ const data = [{
     ]
   },
   {
-    name: 'bianchi fra',
+    label: 'bianchi fra',
     tot: 2000,
-    childs: [
+    nodes: [
 
     ]
   },
   {
-    name: 'verdi etto',
+    label: 'verdi etto',
     tot: 1000,
-    childs: [
+    nodes: [
 
     ]
   },
   {
-    name: 'grigi manu',
+    label: 'grigi manu',
     tot: 7000,
-    childs: [
+    nodes: [
 
     ]
   }
-]
+]}
+
 export default {
+  components:{TreeView},
   data() {
     return {
-      rete:data
+      rete:data,
+      treeData:treeData,
     }
-  }
+},
+methods:{
+    // const tree=[{text:"node 1",value:{id:1},state:{opened:!0},children:[{text:"node 11",value:{id:11}},{text:"node 12",value:{id:12},state:{opened:!0},children:[{text:"node 121",value:{id:121}},{text:"node 122",value:{id:122}},{text:"node 123",value:{id
+
+    getData(){
+        return this.data.reduce((acc,val)=>{
+
+        },[])
+    }
+}
 }
 </script>

@@ -14,7 +14,9 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' }
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' },
+      { rel: 'stylesheet', href: './node_modules/tree-component/dist/tree.min.css' },
+      { rel: 'stylesheet', href: './node_modules/@pragmasphere/vue-tree/lib/vue-tree.min.css' }
     ]
   },
   plugins: ['~/plugins/vuetify.js'],

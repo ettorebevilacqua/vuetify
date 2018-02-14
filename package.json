@@ -11,7 +11,9 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@pragmasphere/vue-tree": "^0.4.0",
     "nuxt": "^1.0.0-rc11",
+    "tree-vue-component": "^5.1.1",
     "vuetify": "^0.17.4"
   },
   "devDependencies": {
