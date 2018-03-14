@@ -49,6 +49,10 @@ export default {
       name: 'aaa',
       importo: 0
     }
-  }
+},
+created(){
+    console.log('tree comp has crated')
+}
+
 }
 </script>
