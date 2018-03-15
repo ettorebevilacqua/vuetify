@@ -11,7 +11,8 @@ import {
   VGrid,
   VToolbar,
   VForm,
-  VTextField
+  VTextField,
+  VDataTable
 } from 'vuetify'
 
   import VueTree from '@pragmasphere/vue-tree'
@@ -37,7 +38,8 @@ Vue.use(Vuetify, {
     VGrid,
     VToolbar,
     VForm,
-    VTextField
+    VTextField,
+    VDataTable
   }
 })
 // Vue.components('vue-tree', VueTree)

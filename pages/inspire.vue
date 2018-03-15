@@ -1,13 +1,37 @@
 <template>
-<v-layout>
+<v-layout justify-center>
     <v-flex text-xs-center>
-        <h2>Rete :</h2>
 
-    <div v-for="(item, index) in $store.state.payments">
-        <span>nome :{{item.firstname}} {{item.lastname}} user {{item.email}} price :{{item.tot}}</span>
-    </div>
-        <!-- <tree-view style="font-size:12px" :nodes="rete.nodes" :depth="0" :label="rete.label"></tree-view> -->
+
+<div class="table-with" justify-center>
+
+        <div>
+            <div>
+                <div class="balance-descr"><h2>CashBack</h2></div>
+                <div class="balance-val-container">
+                <div class="balance-val txtright">Tot Speso &nbsp;:&nbsp;</div><div class="balance-val txtleft">{{$store.state.balance.cashBack.amount}}</div>
+                <div class="balance-val txtright">Provvigione 10% &nbsp;:&nbsp;</div><div class="balance-val txtleft">{{$store.state.balance.cashBack.cashback}}</div>
+                </div>
+            </div>
+
+            <div>
+                <div class="balance-descr"><h2>Rete</h2></div>
+                <div class="balance-val-container">
+                <div class="balance-val txtright">Tot Speso</div><div class="balance-val txtleft">{{$store.state.balance.prov.amount}}</div>
+                <div class="balance-val txtright">Provvigione 10% &nbsp;:&nbsp;</div><div class="balance-val txtleft">{{$store.state.balance.prov.prov}}</div>
+            </div>
+            </div>
         </div>
+        <div class="descr-rete"><h2>Rete :</h2></div>
+        <v-data-table :headers="headers" :items="$store.state.payments" hide-actions class="elevation-1 ">
+           <template slot="items" slot-scope="props">
+             <td class="text-xs-left">{{ props.item.name }}</td>
+             <td class="text-xs-right">{{ props.item.mail }}</td>
+             <td class="text-xs-right">{{ props.item.tot }}</td>
+           </template>
+       </v-data-table>
+</div>
+        <!-- <tree-view style="font-size:12px" :nodes="rete.nodes" :depth="0" :label="rete.label"></tree-view> -->
 
         <!--  <tree :data="rete"> </tree>     @toggle="toggle($event)" @change="change($event)">
 <vue-tree></vue-tree>
@@ -25,124 +49,43 @@
     </v-flex>
 </v-layout>
 </template>
+<style scoped>
+    .table-with{
+        width: 800px;
+    },
+    .descr-rete{
+        margin-bottom: 16px;
+    },
+    .left{
+        float:left;
+    }
+    .balance-descr{
+        width: 100%;
+        clear: left;
+        background-color: #303030;
+    }
+    .txtleft{
+        text-align: left;
+    }
+    .txtright{
+        text-align: right;
 
+    }
+    .balance-val-container{
+            display:flex;
+            align-items:center;
+            justify-content: center;
+    }
+    .balance-val{
+        float:left;
+        xwidth: 120px;
+        padding: 5px;
+    }
+</style>
 
 <script>
 //  import  "tree-vue-component"
 import TreeView from '~/components/tree'
-
-const treeData = {
-    text: 'root',
-    nodes: [{
-            text: 'item1',
-            nodes: [{
-                    text: 'item1.1'
-                },
-                {
-                    text: 'item1.2',
-                    nodes: [{
-                        label: 'item1.2.1'
-                    }]
-                }
-            ]
-        },
-        {
-            text: 'item2'
-        }
-    ]
-}
-
-const data = {
-    label: 'la mia struttura ',
-    nodes: [{
-            label: 'rossi luigi',
-            tot: 5000,
-            nodes: [{
-                    label: 'qui',
-                    tot: 2000,
-                    nodes: [{
-                        label: 'topolino',
-                        tot: 2000,
-                        nodes: [
-
-                        ]
-                    }]
-                },
-                {
-                    label: 'quo',
-                    tot: 2000,
-                    nodes: [{
-                            label: 'bassotto1',
-                            tot: 2000,
-                            nodes: [
-
-                            ]
-                        },
-                        {
-                            label: 'bassotto2',
-                            tot: 2000,
-                            nodes: [
-
-                            ]
-                        }
-                    ]
-                },
-                {
-                    label: 'qua',
-                    tot: 2000,
-                    nodes: [{
-                            label: 'gastone',
-                            tot: 2000,
-                            nodes: [
-
-                            ]
-                        },
-                        {
-                            label: 'paperone',
-                            tot: 2000,
-                            nodes: [{
-                                    label: 'papera',
-                                    tot: 2000,
-                                    nodes: [
-
-                                    ]
-                                },
-                                {
-                                    label: 'paperino',
-                                    tot: 2000,
-                                    nodes: [
-
-                                    ]
-                                }
-                            ]
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            label: 'bianchi fra',
-            tot: 2000,
-            nodes: [
-
-            ]
-        },
-        {
-            label: 'verdi etto',
-            tot: 1000,
-            nodes: [
-
-            ]
-        },
-        {
-            label: 'grigi manu',
-            tot: 7000,
-            nodes: [
-
-            ]
-        }
-    ]
-}
 
 export default {
     components: {
@@ -150,8 +93,11 @@ export default {
     },
     data() {
         return {
-            rete: data,
-            treeData: treeData,
+            headers: [
+               { text: 'Nome', align: 'left',sortable: true, value: 'name'},
+               { text: 'Email', align: 'left', value: 'email' },
+               { text: 'Tot', value: 'tot' }
+             ],
         }
     },
 
@@ -164,9 +110,10 @@ export default {
             }, [])
         }
     },
-    created (){
-        console.log('inspare');
+    created() {
+        this.$store.dispatch('getBalance');
         this.$store.dispatch('getPayment');
+
     }
 }
 </script>

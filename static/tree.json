@@ -1,0 +1,91 @@
+{
+
+    nodes: [{
+            label: 'rossi luigi',
+            tot: 5000,
+            nodes: [{
+                    label: 'qui',
+                    tot: 2000,
+                    nodes: [{
+                        label: 'topolino',
+                        tot: 2000,
+                        nodes: [
+
+                        ]
+                    }]
+                },
+                {
+                    label: 'quo',
+                    tot: 2000,
+                    nodes: [{
+                            label: 'bassotto1',
+                            tot: 2000,
+                            nodes: [
+
+                            ]
+                        },
+                        {
+                            label: 'bassotto2',
+                            tot: 2000,
+                            nodes: [
+
+                            ]
+                        }
+                    ]
+                },
+                {
+                    label: 'qua',
+                    tot: 2000,
+                    nodes: [{
+                            label: 'gastone',
+                            tot: 2000,
+                            nodes: [
+
+                            ]
+                        },
+                        {
+                            label: 'paperone',
+                            tot: 2000,
+                            nodes: [{
+                                    label: 'papera',
+                                    tot: 2000,
+                                    nodes: [
+
+                                    ]
+                                },
+                                {
+                                    label: 'paperino',
+                                    tot: 2000,
+                                    nodes: [
+
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            label: 'bianchi fra',
+            tot: 2000,
+            nodes: [
+
+            ]
+        },
+        {
+            label: 'verdi etto',
+            tot: 1000,
+            nodes: [
+
+            ]
+        },
+        {
+            label: 'grigi manu',
+            tot: 7000,
+            nodes: [
+
+            ]
+        }
+    ]
+}

@@ -5,7 +5,7 @@
             <i v-if="nodes" class="fa" :class="iconClasses"></i> <span class="myfont">{{ label }}</span>
         </div>
     </div>
-    <tree-menu v-if="showChildren" v-for="node in nodes" :nodes="node.nodes" :label="node.label" :depth="depth + 1">
+    <tree-menu v-if="showChildren" v-for="(node, i) in nodes" key="i" :nodes="node.nodes" :label="node.label" :depth="depth + 1">
     </tree-menu>
 </div>
 </template>
