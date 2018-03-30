@@ -32,4 +32,15 @@ npm install --save <name>
 yarn add <name>
 
 
+
+ftp.ekores.org
+user: 7000541@aruba.it
+
+db Sql1047094
+https://mysql.aruba.it/login/index.php?lang=it-iso-8859-1
+
+cp7465440
+w2ino56055
+
 >>>>>>> 20b9740888d261bb4811c3cfdd396aa91dc51271
+cp7465440EK

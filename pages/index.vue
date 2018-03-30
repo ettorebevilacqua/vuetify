@@ -9,6 +9,7 @@
       <v-card-title class="headline">Inserisci importo</v-card-title>
       <v-card-text>
         <v-form v-model="valid">
+            <vselect></vselect>
           <v-text-field label="Cliente" v-model="name" required></v-text-field>
           <v-text-field label="Importo" v-model="importo" required></v-text-field>
         </v-form>
@@ -42,7 +43,14 @@
 </template>
 
 <script>
+var components={};
+if (process.browser) {
+console.log('mmmmmmmmm');
+   components.vselect = require('vue-select')
+}
+
 export default {
+    components,
   data () {
     return {
       valid: false,

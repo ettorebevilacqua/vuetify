@@ -15,6 +15,7 @@
     "axios": "^0.18.0",
     "nuxt": "^1.0.0-rc11",
     "tree-vue-component": "^5.1.1",
+    "vue-select": "^2.4.0",
     "vuetify": "^0.17.4"
   },
   "devDependencies": {
