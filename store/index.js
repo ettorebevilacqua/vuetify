@@ -21,8 +21,13 @@ export const actions = {
     return Axios.get('http://www.19thstreet.it/naike/a/shop/api.php?api=balance').then(res => {
       state.commit('setBalance', res.data)
     })
-  }
+  },
 
+  getTest (state) {
+    return Axios.get('http://www.19thstreet.it/naike/a/shop/api.php?api=balance').then(res => {
+      state.commit('setBalance', res.data)
+    })
+  }
 }
 
 export const mutations = {
