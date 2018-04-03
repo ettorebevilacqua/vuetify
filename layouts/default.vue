@@ -25,7 +25,9 @@
   </v-btn>-->
     <v-toolbar-title v-text="title"></v-toolbar-title>
     <v-spacer></v-spacer>
-    SALDO {{$store.state.balance.balance}}
+
+  <v-spacer></v-spacer>
+    {{$store.state.user.name}} &nbsp; &nbsp; &nbsp; &nbsp; SALDO {{$store.state.balance.balance}}
     <v-btn icon @click.stop="rightDrawer = !rightDrawer">
       <v-icon>menu</v-icon>
   </v-btn>
@@ -70,6 +72,7 @@ export default {
 },
 created() {
     this.$store.dispatch('getBalance');
+    this.$store.dispatch('getUser');
 
 }
 }
