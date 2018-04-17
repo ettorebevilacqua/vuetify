@@ -6,7 +6,7 @@
     </div>
 
     <v-card>
-      <v-card-title class="headline">Inserisci importo</v-card-title>
+      <v-card-title class="headline">saldo token : {{$store.state.balance.token}} <br> Inserisci importo</v-card-title>
       <v-card-text>
         <div v-if="!isInSell">
         <v-form v-model="valid" >
@@ -86,7 +86,11 @@ methods: {
 },
 created(){
     console.log('tree comp has crated')
-    this.$store.dispatch('getSellList');
+    this.$store.dispatch('getSellList')
+
+    if (!this.$store.state.user || !this.$store.state.user.isshop ) {
+    console.log('is not ') //  return redirect('/inspire')
+   }
 }
 
 }

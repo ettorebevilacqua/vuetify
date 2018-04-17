@@ -5,6 +5,11 @@ module.exports = {
   /*
   ** Headers of the page
   */
+
+  router: {
+   middleware: 'route',
+    base: '/dist/'
+},
   head: {
     title: 'vuetify',
     meta: [
@@ -19,6 +24,7 @@ module.exports = {
       { rel: 'stylesheet', href: './node_modules/@pragmasphere/vue-tree/lib/vue-tree.min.css' }
     ]
   },
+
   plugins: ['~/plugins/vuetify.js'],
   css: [
     '~/assets/style/app.styl'
